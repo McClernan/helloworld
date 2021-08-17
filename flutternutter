@@ -1,0 +1,113 @@
+Codelab: Flutter@Google Basics
+Edited 2021-08-17
+go/flutter-basics
+
+Page contents
+
+Before you begin
+Differences with using Flutter in google3
+Creating a Piper workspace
+1. Creating a Flutter project
+1.1 Project layout
+1.2 The sample app
+2. Building the sample app
+3. Run the sample app
+4. Cleaning up
+Troubleshooting
+Appendix
+Passing runtime arguments to Flutter
+Manually deploying a Flutter app
+This codelab introduces the basics of Flutter development in google3.
+
+You can also try the Basic Flutter layout concepts codelab, which you complete using DartPad.
+
+Before you begin
+Install Flutter.
+
+Flutter development requires special handling of some common Blaze options. If you face issues running the Blaze commands in this codelab, pass the following flag to your Blaze commands:
+
+--blazerc=/dev/null
+Differences with using Flutter in google3
+Although you can transfer source code from an external Flutter project to a google3 project, using Flutter in google3 is different from using Flutter externally. Here are the primary differences:
+
+Difference	Internal Flutter	External Flutter
+Command line interface	Run internal google3 commands.	Use the Flutter command line interface.
+Declaring project dependencies	
+Dependencies are declared in project's BUILD file and imported to .dart files with import. Example
+
+Dependencies are declared in project's pubspec.yaml file and imported to .dart files with import.
+
+Creating a Piper workspace
+Create a Piper workspace:
+
+CitC
+Fig-on-CitC
+To create a new CitC client, run the following command from a gLinux environment:
+
+gcert; g4d -f flutter_codelab
+1. Creating a Flutter project
+To begin developing a Flutter app, you first create a Flutter project. A Flutter project is a directory tree that contains all of the source code, libraries, and other elements that make up your app.
+
+To create a Flutter project in google3, run the flutter cli create command. Let's create a project called hello_flutter in your //experimental directory:
+
+blaze run //mobile/flutter/cli create -- experimental/users/mcclernan/hello_flutter
+1.1 Project layout
+Below is a simplified, annotated example of a Flutter project in google3. Your project is in the //google3/experimental tree for this codelab, but normally, it would be elsewhere in /google3:
+
+Note: Although your project has directories for Android, iOS, and web, each platform is optional.
+
+//experimental/users/mcclernan/hello_flutter/
+
+    app/
+      BUILD               # Package definition; you declare build rules, dependencies here.
+      lib/                # Libraries directory.
+        main.dart         # Main entrypoint code for the app
+    ios/                  # Required to build the app for iOS.
+      BUILD               # Build rules specific to iOS.
+    java/com/google/android/apps/hello_flutter/   # Required to build the app for Android.
+      BUILD               # Build rules specific to Android
+    web/                  # Required to build the app for a web browser.
+      BUILD               # Build rules specific to web.
+Note: To learn more about project structure for Flutter apps in google3, see project structure guidelines.
+
+1.2 The sample app
+When you create a Flutter project in google3, it always include a sample Flutter app: a single screen with some text that changes as you press a button. If you want to read the sample app's code, open //experimental/users/mcclernan/hello_flutter/app/lib/main.dart.
+
+Flutter apps are written in the Dart programming language.
+
+Flutter apps are composed of widgets, reusable classes used to build user interfaces. The sample program is essentially a simple mobile user interface composed of several Flutter widgets and several Material widgets. Learn more.
+
+2. Building the sample app
+To build your project's sample app in google3, use blaze build. Run one of the following commands:
+
+Linux
+macOS
+blaze --noexoblaze build --ios_minimum_os=11.4 --ios_multi_cpus=x86_64,arm64 experimental/users/mcclernan/hello_flutter/ios
+where:
+
+--ios_minimum_os declares the minimum required version of iOS.
+--ios_multi_cpus declares the device architecture. x86_64 would be compatible with a 64-bit simulator, and arm64 would be compatible with most modern iOS devices.
+
+Tip: If you hit a build error related to device architecture, try removing one of the platforms from the --ios_multi_cpus flag.
+
+This command builds the app's iOS binary:
+
+/google3/blaze-bin/experimental/users/mcclernan/hello_flutter/ios/ios.ipa
+3. Run the sample app
+After you build the app's binary, you can run your Flutter app on a physical device or device emulator. (For learning purposes, you might notice an emulator is faster.) When successful, you'll see the main screen of your Flutter app running on your device or emulator.
+
+Perform one of the following sets of steps:
+
+Crow
+Android device
+iOS Simulator
+iOS device
+Web
+Open the Simulator app. If necessary, choose a device from the Hardware > Device > iOS menu.
+
+Note: If you can't find Simulator, check that you have Xcode installed.
+
+Run the app:
+
+blaze --noexoblaze run --ios_multi_cpus=x86_64 //experimental/users/mcclernan/hello_flutter/ios
+When you're finished, close Simulator.
