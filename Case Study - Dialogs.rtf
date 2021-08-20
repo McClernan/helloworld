@@ -1,0 +1,332 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fprq8\fcharset0 Google Sans;}{\f1\fnil\fprq8\fcharset0 Roboto;}{\f2\fnil\fcharset0 Calibri;}{\f3\fnil\fprq8\fcharset0 Google Sans Text;}{\f4\fnil Calibri;}{\f5\fnil\fprq8\fcharset0 Arial;}{\f6\fnil\fprq8\fcharset0 Roboto Mono;}{\f7\fnil\fcharset1 Cambria Math;}{\f8\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red25\green118\blue210;\red17\green85\blue204;\red0\green0\blue255;\red255\green255\blue255;\red66\green66\blue66;\red255\green242\blue204;\red70\green89\blue76;\red149\green92\blue17;\red0\green121\blue107;\red33\green33\blue33;\red97\green97\blue97;\red253\green253\blue253;\red17\green17\blue17;\red1\green117\blue194;\red19\green185\blue253;\red114\green114\blue114;\red70\green116\blue162;\red74\green74\blue74;\red0\green143\blue131;}
+{\*\generator Riched20 10.0.19041}{\*\mmathPr\mmathFont7\mwrapIndent1440 }\viewkind4\uc1 
+\pard\sb480\sa120\sl240\slmult1\cf1\f0\fs56\lang9 Material Dialogs\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 In HTML there are three dialog types: alert, confirm and prompt.\par
+
+\pard\sb480\sa80\sl240\slmult1 {\cf2\ul\f0\fs36{\field{\*\fldinst{HYPERLINK "https://carbon.googleplex.com/google-material/pages/dialogs/tab-1"}}{\fldrslt{Google Material}}}}\f2\fs22\par
+
+\pard\li300\ri300\sl240\slmult1\highlight4\f0\fs24 A dialog is a type of modal window that appears in front of app content to provide critical information, or ask for a decision. Dialogs disable all app functionality when they appear, and remain on screen until confirmed, dismissed, or a required action has been taken.\par
+
+\pard\sb480\sa80\sl240\slmult1 {\cf2\highlight0\ul\fs36{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs"}}{\fldrslt{Material.io}}}}\highlight0\f2\fs22\par
+
+\pard\sl240\slmult1\cf5\f1\fs24 Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks.\par
+\cf0\f2\fs22\par
+{\cf2\ul\f1\fs24{\field{\*\fldinst{HYPERLINK "https://docs.google.com/document/d/11GSvHXoBoAVbYtKD1ui0FwaIKsMAYth7xrmMZ7-fimY/edit?resourcekey=0-5DfOcYZYmu_WH1CzfACSIg#"}}{\fldrslt{Dialogs share some functionality with sheets in Android:}}}}\f2\fs22\par
+\f1 as we consider the broader family of sheet components, we have an opportunity to support a wider range of scenarios (and address current limitations of modal dialogs) through the introduction of floating sheets.  \par
+\f2\par
+\f1 Short term, for V1, our guidance will cover visual and interaction updates for Dialogs, Bottom sheets and Side sheets, empowering app builders to design for both large screens as well as foldable devices. \par
+ \par
+\f3 Long term, post V1, we plan to introduce floating sheets as a new component, to support a wider range of communication and action flows beyond our modal and simple dialog variants. \par
+\f2\par
+\highlight6\f3 Dialogs are interchangeable with bottom sheets\par
+\highlight0\f2\par
+
+\pard\sb400\sa120\sl240\slmult1\cf7\f3\fs38 Proposal for Taxonomy (near term, V1)\par
+
+\pard\sb280\sa80\sl240\slmult1\cf8\f0\fs24 Component > Container > Dialogs\par
+
+\pard\sl240\slmult1\cf0\f1\fs22 No change. Dialogs remain modal and blocking, carrying over the same guidance and options as they exist today in GM spec. \par
+
+\pard\sb280\sa80\sl240\slmult1\cf8\f0\fs24 Component > Container > Bottom Sheets\par
+
+\pard\sl240\slmult1\cf0\f1\fs22 Depending on screen size, Bottom sheets can change into Side Sheets and vice-versa, but they do not change into Dialogs or Menus.\par
+
+\pard\sb280\sa80\sl240\slmult1\cf8\f0\fs24 Component > Container > Side Sheets\par
+
+\pard\sl240\slmult1\cf0\f1\fs22 No change from baseline. \par
+\f2\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Proposal for Taxonomy (Post-V1) \par
+
+\pard\sb280\sa80\sl240\slmult1\cf8\fs24 Component > Container > Dialog\par
+
+\pard\sl240\slmult1\cf0\f1\fs22 Dialogs remain modal and disruptive. (what is the difference between modal and disruptive in this context?)\par
+
+\pard\sb280\sa80\sl240\slmult1\cf8\f0\fs24 Component > Container > Sheet > Docked\par
+
+\pard\sl240\slmult1\cf0\f1\fs22 Docked sheets can either be bottom or side docked, and can transition from one to the other depending on screen size. \par
+
+\pard\sb280\sa80\sl240\slmult1\cf8\f0\fs24 Component > Container > Sheet > Floating\par
+
+\pard\sl240\slmult1\cf0\f1\fs22 Floating sheets are assistive and non-modal.\par
+\f2\par
+
+\pard\sa240\sl240\slmult1\cf1\highlight4\f0\fs36 Dialog Issue: simplify, consolidate\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb200\sl240\slmult1\cf9\f3\fs22 Simplify dialogs into \ldblquote Basic dialog\rdblquote  and \ldblquote Full-screen dialog\rdblquote\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sl240\slmult1 List out \ldblquote alert\rdblquote  and \ldblquote simple\rdblquote  and \ldblquote confirmation\rdblquote  as common configurations or common examples of dialogs\par
+{\pntext\f8\'B7\tab}Ask eng folk for a list of their dialog implementations\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sl240\slmult1 Here\rquote s what we propose \f4\endash  basic and full-screen\par
+{\pntext\f8\'B7\tab}\f3 Alex to poke around for Figma of dialogs \f4\emdash  everyone drop your notes in here so we know we can represent it accurately per platform\par
+
+\pard\sb200\sl240\slmult1\cf0\highlight0\f2\par
+
+\pard\sa240\sl240\slmult1 {\highlight4\f5\fs24{\field{\*\fldinst{HYPERLINK https://docs.google.com/document/d/1zk5vbX2CJgjz6UXxxGlMV2xVrxD4nZRsjBe06FofNhQ/edit?resourcekey=0-WaEl8O8y17Hp9uiJ-gqdeg }}{\fldrslt{https://docs.google.com/document/d/1zk5vbX2CJgjz6UXxxGlMV2xVrxD4nZRsjBe06FofNhQ/edit?resourcekey=0-WaEl8O8y17Hp9uiJ-gqdeg\ul0\cf0}}}}\highlight4\f5\fs24\par
+{\cf2\ul{\field{\*\fldinst{HYPERLINK "https://docs.google.com/document/d/11GSvHXoBoAVbYtKD1ui0FwaIKsMAYth7xrmMZ7-fimY/edit?resourcekey=0-5DfOcYZYmu_WH1CzfACSIg#heading=h.8mbm2nqiciq9"}}{\fldrslt{Material Next - Adaptive Sheets and Dialogs: One-Pager}}}}\highlight0\f2\fs22\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Android\par
+
+\pard\li720\cf0\b\f5\fs24 Github\par
+
+\pard\sa200\sl276\slmult1 {\b0\f1\fs22{\field{\*\fldinst{HYPERLINK https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md }}{\fldrslt{https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md\ul0\cf0}}}}\b0\f1\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb60\sl240\slmult1 {\cf2\highlight4\ul\f5\fs24{\field{\*\fldinst{HYPERLINK "https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md#alert-dialog"}}{\fldrslt{Alert dialog}}}}\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 {\cf2\highlight4\f5\fs24{\field{\*\fldinst{HYPERLINK "https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md#simple-dialog"}}{\fldrslt{\ul\cf3\ul Simple dialog}}}}\f2\fs22\par
+{\pntext\f8\'B7\tab}{\cf2\highlight4\f5\fs24{\field{\*\fldinst{HYPERLINK "https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md#confirmation-dialog"}}{\fldrslt{\ul\cf3\ul Confirmation dialog}}}}\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa240\sl240\slmult1 {\cf2\highlight4\f5\fs24{\field{\*\fldinst{HYPERLINK "https://github.com/material-components/material-components-android/blob/master/docs/components/Dialog.md#full-screen-dialog"}}{\fldrslt{\ul\cf3\ul Full-screen dialog}}}}\f2\fs22\par
+
+\pard\li720\b\f5\fs24 Material IO \par
+
+\pard\sa200\sl276\slmult1 {\b0\f1\fs22{\field{\*\fldinst{HYPERLINK https://material.io/components/dialogs }}{\fldrslt{https://material.io/components/dialogs\ul0\cf0}}}}\b0\f1\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb240\sl240\slmult1 {\cf10\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#alert-dialog"}}{\fldrslt{\ul\cf3\ul Alert dialog}}}}\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 {\cf11\f1\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#simple-dialog"}}{\fldrslt{\ul\cf3\ul Simple dialog}}}}\f2\fs22\par
+{\pntext\f8\'B7\tab}{\cf11\f1\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#confirmation-dialog"}}{\fldrslt{\ul\cf3\ul Confirmation dialog}}}}\f2\fs22\par
+{\pntext\f8\'B7\tab}{\cf11\f1\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#full-screen-dialog"}}{\fldrslt{\ul\cf3\ul Full-screen dialog}}}}\f2\fs22\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Flutter\par
+
+\pard\sa200\sl276\slmult1 {\cf0\f1\fs22{\field{\*\fldinst{HYPERLINK https://github.com/material-components/material-components-flutter/blob/develop/docs/components/dialogs.md }}{\fldrslt{https://github.com/material-components/material-components-flutter/blob/develop/docs/components/dialogs.md\ul0\cf0}}}}\cf0\f1\fs22\par
+{{\field{\*\fldinst{HYPERLINK https://material.io/components/dialogs#usage }}{\fldrslt{https://material.io/components/dialogs#usage\ul0\cf0}}}}\f1\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb240\sl240\slmult1 {\cf11\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#alert-dialog"}}{\fldrslt{\ul\cf3\ul Alert dialog}}}}\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 {\cf11\f1\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#simple-dialog"}}{\fldrslt{\ul\cf3\ul Simple dialog}}}}\f2\fs22\par
+{\pntext\f8\'B7\tab}{\cf11\f1\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#confirmation-dialog"}}{\fldrslt{\ul\cf3\ul Confirmation dialog}}}}\f2\fs22\par
+{\pntext\f8\'B7\tab}{\cf11\f1\fs24{\field{\*\fldinst{HYPERLINK "https://material.io/components/dialogs#full-screen-dialog"}}{\fldrslt{\ul\cf3\ul Full-screen dialog}}}}\f2\fs22\par
+
+\pard\sa200\sl276\slmult1\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl276\slmult1\highlight6\f1 Dialog packages unrelated to Material\par
+{\pntext\f8\'B7\tab}{{\field{\*\fldinst{HYPERLINK https://pub.dev/flutter/packages?q=dialog }}{\fldrslt{https://pub.dev/flutter/packages?q=dialog\ul0\cf0}}}}\f1\fs22\par
+{\pntext\f8\'B7\tab}{\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/index.html"}}{\fldrslt{Flutter API libraries}}}}\highlight0\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1\highlight6\f1 Material is one of the libraries and \ldblquote how flutter widgets implement Material Design\rdblquote\par
+
+\pard\sa200\sl276\slmult1\highlight0 MH - simplify types\par
+Basic dialog and full screen\par
+Dialog devdoc for flutter\par
+\f2\par
+\f1 Goal: dialog buckets, Flutter wireframe\par
+\f2\par
+
+\pard\sa220\sl240\slmult1\cf1\highlight12\f0\fs36 Flutter widgets implementing Material Design\par
+
+\pard\li720 {\cf2\highlight0\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AboutDialog-class.html"}}{\fldrslt{AboutDialog class }}}}\cf0\highlight0\f2\fs22\par
+
+\pard\sa200\sl276\slmult1\f1 An about box. This is a dialog box with the application's icon, name, version number, and copyright, plus a button to show licenses for software used by the application.\par
+
+\pard\li720 {\cf2\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AlertDialog-class.html"}}{\fldrslt{AlertDialog class}}}}\f2\fs22\par
+
+\pard\sa200\sl276\slmult1\f1 A material design alert dialog.\line An alert dialog informs the user about situations that require acknowledgement. An alert dialog has an optional title and an optional list of actions. The title is displayed above the content and the actions are displayed below the content.\par
+
+\pard\li720\sl240\slmult1 {\cf2\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DatePickerDialog-class.html"}}{\fldrslt{DatePickerDialog class}}}}\f2\fs22\par
+
+\pard\sa200\sl276\slmult1\f1 A Material-style date picker dialog.\par
+It is used internally by showDatePicker or can be directly pushed onto the Navigator stack to enable state restoration. See showDatePicker for a state restoration app example.\par
+
+\pard\li720\ri120\sl240\slmult1 {\cf2\highlight12\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DateRangePickerDialog-class.html"}}{\fldrslt{DateRangePickerDialog class}}}}\f2\fs22\par
+
+\pard\ri120\sa320\sl240\slmult1\highlight12\f1 A Material-style date range picker dialog.\par
+It is used internally by {\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDateRangePicker.html"}}{\fldrslt{showDateRangePicker}}}}\f1\fs22  or can be directly pushed onto the {\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/Navigator-class.html"}}{\fldrslt{Navigator}}}}\f1\fs22  stack to enable state restoration. See {\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDateRangePicker.html"}}{\fldrslt{showDateRangePicker}}}}\f1\fs22  for a state restoration app example.\par
+
+\pard\li720\ri120\sa320\sl240\slmult1 {\cf2\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/Dialog-class.html"}}{\fldrslt{Dialog class}}}}\highlight0\f2\fs22\par
+
+\pard\sa200\sl276\slmult1\f1 A material design dialog.\par
+
+\pard\sl240\slmult1\cf13\highlight12\fs23 This dialog widget does not have any opinion about the contents of the dialog. Rather than using this widget directly, consider using {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AlertDialog-class.html"}}{\fldrslt{\ul\cf3\ul AlertDialog}}}}\f1\fs23  or {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialog-class.html"}}{\fldrslt{\ul\cf3\ul SimpleDialog}}}}\f1\fs23 , which implement specific kinds of material design dialogs.\par
+See also:\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb220\sl240\slmult1 {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AlertDialog-class.html"}}{\fldrslt{\ul\cf3\ul AlertDialog}}}}\f1\fs23 , for dialogs that have a message and some buttons.\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sl240\slmult1 {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialog-class.html"}}{\fldrslt{\ul\cf3\ul SimpleDialog}}}}\f1\fs23 , for dialogs that offer a variety of options.\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDialog.html"}}{\fldrslt{\ul\cf3\ul showDialog}}}}\f1\fs23 , which actually displays the dialog and returns its result.\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 {\cf2\highlight0\ul\fs22{\field{\*\fldinst{HYPERLINK "https://material.io/design/components/dialogs.html"}}{\fldrslt{material.io/design/components/dialogs.html}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\li720\ri120\sl240\slmult1 {\cf2\highlight12\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogRoute-class.html"}}{\fldrslt{DialogRoute}}}}{\cf2\highlight12\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogRoute-class.html"}}{\fldrslt{<}}}}{\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogRoute-class.html"}}{\fldrslt{T}}}}{\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogRoute-class.html"}}{\fldrslt{>}}}}{\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogRoute-class.html"}}{\fldrslt{ class}}}}\cf0\highlight0\ulnone\b0\f2\fs22\par
+
+\pard\sl240\slmult1\highlight12\f1 A dialog route with Material entrance and exit animations, modal barrier color, and modal barrier behavior (dialog is dismissible with a tap on the barrier).\par
+
+\pard\sa200\sl276\slmult1\highlight0 It is used internally by {\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDialog.html"}}{\fldrslt{showDialog}}}}\f1\fs22  or can be directly pushed onto the {\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/Navigator-class.html"}}{\fldrslt{Navigator}}}}\f1\fs22  stack to enable state restoration. See {\cf2\ul{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDialog.html"}}{\fldrslt{showDialog}}}}\f1\fs22  for a state restoration app example.\par
+
+\pard\li720\ri120\sa320\sl240\slmult1 {\cf2\highlight12\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogTheme-class.html"}}{\fldrslt{DialogTheme class}}}}\f2\fs22\par
+
+\pard\sl240\slmult1\cf13\highlight12\f1\fs23 Defines a theme for {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/Dialog-class.html"}}{\fldrslt{\ul\cf3\ul Dialog}}}}\f1\fs23  widgets.\par
+
+\pard\sa760\sl240\slmult1 Descendant widgets obtain the current {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogTheme-class.html"}}{\fldrslt{\ul\cf3\ul DialogTheme}}}}\f1\fs23  object using \f6 DialogTheme.of(context)\f1 . Instances of {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogTheme-class.html"}}{\fldrslt{\ul\cf3\ul DialogTheme}}}}\f1\fs23  can be customized with {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DialogTheme/copyWith.html"}}{\fldrslt{\ul\cf3\ul DialogTheme.copyWith}}}}\f1\fs23 .\par
+
+\pard\li720\sa220\sl240\slmult1 {\cf2\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialog-class.html"}}{\fldrslt{Simple dialog class}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\sa220\sl240\slmult1\cf13\highlight12\f1\fs23 A simple material design dialog.\par
+A simple dialog offers the user a choice between several options. A simple dialog has an optional title that is displayed above the choices.\par
+Choices are normally represented using {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialogOption-class.html"}}{\fldrslt{\ul\cf3\ul SimpleDialogOption}}}}\f1\fs23  widgets. If other widgets are used, see {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialog/contentPadding.html"}}{\fldrslt{\ul\cf3\ul contentPadding}}}}\f1\fs23  for notes regarding the conventions for obtaining the spacing expected by Material Design.\par
+
+\pard\li720 {\cf2\highlight0\ul\b\f5\fs24{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialogOption-class.html"}}{\fldrslt{Simple Dialog Option}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\sa220\sl240\slmult1\cf13\highlight12\f1\fs23 An option used in a {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialog-class.html"}}{\fldrslt{\ul\cf3\ul SimpleDialog}}}}\f1\fs23 .\par
+A simple dialog offers the user a choice between several options. This widget is commonly used to represent each of the options. If the user selects this option, the widget will call the {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialogOption/onPressed.html"}}{\fldrslt{\ul\cf3\ul onPressed}}}}\f1\fs23  callback, which typically uses {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/Navigator/pop.html"}}{\fldrslt{\ul\cf3\ul Navigator.pop}}}}\f1\fs23  to close the dialog.\par
+The padding on a {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialogOption-class.html"}}{\fldrslt{\ul\cf3\ul SimpleDialogOption}}}}\f1\fs23  is configured to combine with the default {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SimpleDialog/contentPadding.html"}}{\fldrslt{\ul\cf3\ul SimpleDialog.contentPadding}}}}\f1\fs23  so that each option ends up 8 pixels from the other vertically, with 20 pixels of spacing between the dialog's title and the first option, and 24 pixels of spacing between the last option and the bottom of the dialog.\par
+
+\pard\sa200\sl276\slmult1 {\cf15{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showAboutDialog.html"}}{\fldrslt{\ul\cf3\ul showAboutDialog}}}}\cf16\f1\fs23 (\par
+
+\pard\sa220\sl240\slmult1\cf13 Displays an {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AboutDialog-class.html"}}{\fldrslt{\ul\cf3\ul AboutDialog}}}}\f1\fs23 , which describes the application and provides a button to show licenses for software used by the application.\par
+The arguments correspond to the properties on {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AboutDialog-class.html"}}{\fldrslt{\ul\cf3\ul AboutDialog}}}}\f1\fs23 .\par
+If the application has a {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/Drawer-class.html"}}{\fldrslt{\ul\cf3\ul Drawer}}}}\f1\fs23 , consider using {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/AboutListTile-class.html"}}{\fldrslt{\ul\cf3\ul AboutListTile}}}}\f1\fs23  instead of calling this directly.\par
+If you do not need an about box in your application, you should at least provide an affordance to call {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showLicensePage.html"}}{\fldrslt{\ul\cf3\ul showLicensePage}}}}\f1\fs23 .\par
+
+\pard\fi-360\li720\sa200\sl276\slmult1 {\cf15{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDialog.html"}}{\fldrslt{\ul\cf3\ul showDialog}}}}\cf16\f1\fs23 <T>(\{required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/BuildContext-class.html"}}{\fldrslt{\ul\cf3\ul BuildContext}}}}\f1\fs23  context, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/WidgetBuilder.html"}}{\fldrslt{\ul\cf3\ul WidgetBuilder}}}}\f1\fs23  builder, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  barrierDismissible = true, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-ui/Color-class.html"}}{\fldrslt{\ul\cf3\ul Color}}}}\f1\fs23 ? barrierColor = Colors.black54, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? barrierLabel, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  useSafeArea = true, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  useRootNavigator = true, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RouteSettings-class.html"}}{\fldrslt{\ul\cf3\ul RouteSettings}}}}\f1\fs23 ? routeSettings\}) \f7\u8594?\f1  {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-async/Future-class.html"}}{\fldrslt{\ul\cf3\ul Future}}}}\f1\fs23\lang9 <T?>\par
+
+\pard\sa220\sl240\slmult1\cf10 Displays a Material dialog above the current contents of the app, with Material entrance and exit animations, modal barrier color, and modal barrier behavior (dialog is dismissible with a tap on the barrier). {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDialog.html"}}{\fldrslt{\ul\cf3\ul [...]}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\fi-360\li720\sa200\sl276\slmult1 {\cf14\highlight12\f1\fs23{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/showGeneralDialog.html"}}{\fldrslt{\ul\cf3\ul showGeneralDialog}}}}\cf16\highlight12\f1\fs23 <T extends {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/Object-class.html"}}{\fldrslt{\ul\cf3\ul Object}}}}\f1\fs23 ?>(\{required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/BuildContext-class.html"}}{\fldrslt{\ul\cf3\ul BuildContext}}}}\f1\fs23  context, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RoutePageBuilder.html"}}{\fldrslt{\ul\cf3\ul RoutePageBuilder}}}}\f1\fs23  pageBuilder, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  barrierDismissible = false, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? barrierLabel, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-ui/Color-class.html"}}{\fldrslt{\ul\cf3\ul Color}}}}\f1\fs23  barrierColor = const Color(2147483648), {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/Duration-class.html"}}{\fldrslt{\ul\cf3\ul Duration}}}}\f1\fs23  transitionDuration = const Duration(milliseconds: 200), {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RouteTransitionsBuilder.html"}}{\fldrslt{\ul\cf3\ul RouteTransitionsBuilder}}}}\f1\fs23 ? transitionBuilder, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  useRootNavigator = true, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RouteSettings-class.html"}}{\fldrslt{\ul\cf3\ul RouteSettings}}}}\f1\fs23 ? routeSettings\}) \f7\u8594?\f1  {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-async/Future-class.html"}}{\fldrslt{\ul\cf3\ul Future}}}}\f1\fs23\lang9 <T?>\par
+
+\pard\sa220\sl240\slmult1\cf10 Displays a dialog above the current contents of the app. {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/showGeneralDialog.html"}}{\fldrslt{\ul\cf3\ul [...]}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\li720\ri120\sa320\sl240\slmult1\highlight12\b\f5\fs24 showTimePicker function\par
+
+\pard\sa540\sl240\slmult1 {\cf14\b0\f1\fs26{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-async/Future-class.html"}}{\fldrslt{\ul\cf3\ul Future}}}}\cf16\b0\f1\fs26 <{\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/TimeOfDay-class.html"}}{\fldrslt{\ul\cf3\ul TimeOfDay}}}}\f1\fs26 ?> showTimePicker(\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1240\sb260\sl240\slmult1\{required {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/BuildContext-class.html"}}{\fldrslt{\ul\cf3\ul BuildContext}}}}\f1\fs26  context,\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1240\sl240\slmult1 required {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/TimeOfDay-class.html"}}{\fldrslt{\ul\cf3\ul TimeOfDay}}}}\f1\fs26  initialTime,\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/TransitionBuilder.html"}}{\fldrslt{\ul\cf3\ul TransitionBuilder}}}}\f1\fs26 ? builder,\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs26  useRootNavigator = true,\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/TimePickerEntryMode-class.html"}}{\fldrslt{\ul\cf3\ul TimePickerEntryMode}}}}\f1\fs26  initialEntryMode = TimePickerEntryMode.dial,\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs26 ? cancelText,\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs26 ? confirmText,\par
+{\pntext\f8\'B7\tab}{\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs26 ? helpText,\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1240\sa800\sl240\slmult1 {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RouteSettings-class.html"}}{\fldrslt{\ul\cf3\ul RouteSettings}}}}\f1\fs26 ? routeSettings\}\par
+
+\pard\sa540\sl240\slmult1 )\par
+
+\pard\sa760\sl240\slmult1\cf13\fs23 Shows a dialog containing a material design time picker.\par
+The returned Future resolves to the time selected by the user when the user closes the dialog. If the user cancels the dialog, null is returned.\par
+
+\pard\fi-360\li720\sa200\sl276\slmult1 {\cf15{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDatePicker.html"}}{\fldrslt{\ul\cf3\ul showDatePicker}}}}\cf16\f1\fs23 (\{required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/BuildContext-class.html"}}{\fldrslt{\ul\cf3\ul BuildContext}}}}\f1\fs23  context, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23  initialDate, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23  firstDate, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23  lastDate, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23 ? currentDate, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DatePickerEntryMode-class.html"}}{\fldrslt{\ul\cf3\ul DatePickerEntryMode}}}}\f1\fs23  initialEntryMode = DatePickerEntryMode.calendar, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/SelectableDayPredicate.html"}}{\fldrslt{\ul\cf3\ul SelectableDayPredicate}}}}\f1\fs23 ? selectableDayPredicate, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? helpText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? cancelText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? confirmText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-ui/Locale-class.html"}}{\fldrslt{\ul\cf3\ul Locale}}}}\f1\fs23 ? locale, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  useRootNavigator = true, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RouteSettings-class.html"}}{\fldrslt{\ul\cf3\ul RouteSettings}}}}\f1\fs23 ? routeSettings, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-ui/TextDirection-class.html"}}{\fldrslt{\ul\cf3\ul TextDirection}}}}\f1\fs23 ? textDirection, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/TransitionBuilder.html"}}{\fldrslt{\ul\cf3\ul TransitionBuilder}}}}\f1\fs23 ? builder, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DatePickerMode-class.html"}}{\fldrslt{\ul\cf3\ul DatePickerMode}}}}\f1\fs23  initialDatePickerMode = DatePickerMode.day, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? errorFormatText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? errorInvalidText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? fieldHintText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? fieldLabelText\}) \f7\u8594?\f1  {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-async/Future-class.html"}}{\fldrslt{\ul\cf3\ul Future}}}}\f1\fs23\lang9 <{\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23 ?>\par
+
+\pard\sa220\sl240\slmult1\cf10 Shows a dialog containing a Material Design date picker. {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDatePicker.html"}}{\fldrslt{\ul\cf3\ul [...]}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\fi-360\li720\sa200\sl276\slmult1 {\cf14\highlight12\f1\fs23{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDateRangePicker.html"}}{\fldrslt{\ul\cf3\ul showDateRangePicker}}}}\cf16\highlight12\f1\fs23 (\{required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/BuildContext-class.html"}}{\fldrslt{\ul\cf3\ul BuildContext}}}}\f1\fs23  context, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DateTimeRange-class.html"}}{\fldrslt{\ul\cf3\ul DateTimeRange}}}}\f1\fs23 ? initialDateRange, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23  firstDate, required {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23  lastDate, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/DateTime-class.html"}}{\fldrslt{\ul\cf3\ul DateTime}}}}\f1\fs23 ? currentDate, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DatePickerEntryMode-class.html"}}{\fldrslt{\ul\cf3\ul DatePickerEntryMode}}}}\f1\fs23  initialEntryMode = DatePickerEntryMode.calendar, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? helpText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? cancelText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? confirmText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? saveText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? errorFormatText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? errorInvalidText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? errorInvalidRangeText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? fieldStartHintText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? fieldEndHintText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? fieldStartLabelText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/String-class.html"}}{\fldrslt{\ul\cf3\ul String}}}}\f1\fs23 ? fieldEndLabelText, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-ui/Locale-class.html"}}{\fldrslt{\ul\cf3\ul Locale}}}}\f1\fs23 ? locale, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-core/bool-class.html"}}{\fldrslt{\ul\cf3\ul bool}}}}\f1\fs23  useRootNavigator = true, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/RouteSettings-class.html"}}{\fldrslt{\ul\cf3\ul RouteSettings}}}}\f1\fs23 ? routeSettings, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-ui/TextDirection-class.html"}}{\fldrslt{\ul\cf3\ul TextDirection}}}}\f1\fs23 ? textDirection, {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/widgets/TransitionBuilder.html"}}{\fldrslt{\ul\cf3\ul TransitionBuilder}}}}\f1\fs23 ? builder\}) \f7\u8594?\f1  {\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/dart-async/Future-class.html"}}{\fldrslt{\ul\cf3\ul Future}}}}\f1\fs23\lang9 <{\cf17{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/DateTimeRange-class.html"}}{\fldrslt{\ul\cf3\ul DateTimeRange}}}}\f1\fs23 ?>\par
+
+\pard\sa220\sl240\slmult1\cf10 Shows a full screen modal dialog containing a Material Design date range picker. {\cf14{\field{\*\fldinst{HYPERLINK "https://api.flutter.dev/flutter/material/showDateRangePicker.html"}}{\fldrslt{\ul\cf3\ul [...]}}}}\cf0\highlight0\f2\fs22\par
+
+\pard\sa200\sl276\slmult1 {\cf16\highlight12\f1\fs23{\field{\*\fldinst{HYPERLINK https://api.flutter.dev/flutter/material/showTimePicker.html }}{\fldrslt{https://api.flutter.dev/flutter/material/showTimePicker.html\ul0\cf0}}}}\cf16\highlight12\f1\fs23\par
+\cf0\highlight0\f2\fs22\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Accessing dialog in Flutter\par
+\cf0\f2\fs22\par
+\par
+\cf1\f0\fs36 Flutter Set-up\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 Installing Flutter on MacOS Big Sur\par
+Requirements:\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl276\slmult1 Flutter SDK\par
+{\pntext\f8\'B7\tab}Android Studio (can use preferred editor)\par
+{\pntext\f8\'B7\tab}Dart SDK (bundled with Flutter)\par
+{\pntext\f8\'B7\tab}CocoaPods\par
+{\pntext\f8\'B7\tab}Java\par
+{\pntext\f8\'B7\tab}Terminal zsh\par
+{\pntext\f8\'B7\tab}Kotlin\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 Codelab\par
+
+\pard\sa200\sl276\slmult1 SET UP COMPLETE\par
+
+\pard\li720\b\f5\fs24 TERMINAL PATH\par
+
+\pard\li720\sa200\sl276\slmult1\b0\f1\fs22 Export PATH=\rdblquote $PATH:/Users/nancymcclernan/Desktop/flutterSDK/flutter/bin\rdblquote\par
+
+\pard\sa200\sl276\slmult1\f2\par
+\f1\ldblquote IN Flutter, almost everything is a widget, including alignment, padding and layout\rdblquote .\par
+\ldblquote The widget\rquote s main job is to provide a build() method that describes how to display the widget in terms of other, lower level widgets\par
+\f2\par
+\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Start Flutter & My App\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 Ingredients: Simulator for iOS, Xcode Build, Dart DevTools, Android Studio\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl276\slmult1 Open Android Studio then select simulator on top-left menu bar or use terminal\par
+{\pntext\f8\'B7\tab}In terminal: open -a Simulator\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sb480\sl276\slmult1 It will open image (of iphone) on screen\par
+{\pntext\f8\'B7\tab}If Simulator is not open it will open in web page localhost:61449/#/\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl276\slmult1 Flutter run\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sa200\sl276\slmult1 MUST ADD PATH \par
+
+\pard\li720\sa200\sl276\slmult1\f6\fs18 Export PATH=\rdblquote $PATH:/Users/nancymcclernan/Desktop/flutterSDK/flutter/bin\rdblquote\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl276\slmult1\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sb480\sl276\slmult1\f1 Change directory if this gives a \ldblquote no file found\rdblquote  message\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li2160\sb480\sl276\slmult1 Changed to Desktop/namer\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li2880\sb480\sl276\slmult1 Flutter run\par
+{\pntext\f8\'B7\tab}Launches xcode (mac thing)\par
+{\pntext\f8\'B7\tab}Activating Dart DevTools\par
+{\pntext\f8\'B7\tab}Opens hello_world.dart\par
+{\pntext\f8\'B7\tab}In the iphone simulator it says \ldblquote Whoah dude, you have pushed the button this many times\rdblquote\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl276\slmult1 Open Android Studio open namer project to see hello_world.dart code\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sb480\sl276\slmult1 The text of the app can be changed\par
+{\pntext\f8\'B7\tab}So can the color of the primarySwatch\par
+{\pntext\f8\'B7\tab}Hot reload is r in the terminal window (while namer is running)\par
+{\pntext\f8\'B7\tab}If it doesn\rquote t recognize the color (\ldblquote LightBlueAccent\rdblquote  instead of \ldblquote LightBlue\rdblquote  it will throw an error\par
+{\pntext\f8\'B7\tab}Lightning bolt is the hot reload - I think you have to run the first time after that hot reload is available.\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sa200\sl276\slmult1 Fun fact: this is a Material app\par
+
+\pard\sa200\sl276\slmult1\f2\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Building Application for Device\par
+
+\pard\sa200\sl276\slmult1\cf0\f1\fs22 Must have valid device/version\par
+I used my version 6 iPad\par
+Could not finally figure this out after several hours. Will return later.\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 App from scratch\par
+
+\pard\sa200\sl276\slmult1\cf0\f2\fs22\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl240\slmult1\cf18\highlight4\f1\fs24 Open the IDE and select Create New Flutter Project.\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sb480\sl240\slmult1 IDE = Android Studio\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl240\slmult1 Select Flutter Application as the project type. \par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sb480\sl240\slmult1 Select File -> New -> New Flutter Project\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl240\slmult1 In New Project window select Flutter App.\par
+{\pntext\f8\'B7\tab}Verify the Flutter SDK path specifies the SDK\rquote s location \par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li1440\sb480\sl240\slmult1 (select Install SDK\'85 if the text field is blank) \i this does not exist in Android Studio\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sl240\slmult1 Can\rquote t find SDK - it\rquote s in FLUTTER DIRECTORY\par
+{\pntext\f8\'B7\tab}\i0 Enter a project name (for example, \cf19\f6\fs21 myapp\cf18\f1\fs24 ). Then click Next.\par
+{\pntext\f8\'B7\tab}Click Finish.\par
+{\pntext\f8\'B7\tab}Wait for Android Studio to install the SDK and create the project.\par
+
+\pard{\pntext\f8\'B7\tab}{\*\pn\pnlvlblt\pnf8\pnindent0{\pntxtb\'B7}}\fi-360\li720\sb480\sa240\sl240\slmult1\cf0\highlight0\f2\fs22\par
+
+\pard\sa200\sl276\slmult1\f1 OpenWeather API\par
+{{\field{\*\fldinst{HYPERLINK https://home.openweathermap.org/api_keys }}{\fldrslt{https://home.openweathermap.org/api_keys\ul0\cf0}}}}\f1\fs22\par
+
+\pard\sb480\sa80\sl240\slmult1\cf1\f0\fs36 Flutter install dialog(s)\par
+
+\pard\sa200\sl276\slmult1\cf0\f2\fs22\par
+}
+ 
